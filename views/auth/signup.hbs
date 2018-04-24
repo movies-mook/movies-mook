@@ -1,0 +1,36 @@
+<form id="form" action="/auth/signup" method="POST" enctype="multipart/form-data">
+    <label for="username">Username</label>
+    <br>
+    <input type="text" name="username" required placeholder="username">
+    <br>
+    <br>
+    <label for="password">Password</label>
+    <br>
+    <input type="password" name="password" required placeholder="password">
+    <br>
+    <br>
+    <label for="namereal">Realname</label>
+    <br>
+    <input type="text" name="namereal" required placeholder="real name">
+    <br>
+    <br>
+    <label for="fecha">Fecha</label>
+    <br>
+    <input type="text" name="fecha" step="1" min="2013-12" max="2014-12" value="2014-01">
+    <br>
+    <br>
+    <label for="pais">Pais</label>
+    <br>
+    <input type="text" name="pais" required placeholder="pais"> 
+    {{#if errorMessage}}
+    <div class="error-message">{{ errorMessage }}</div>
+  </form>
+    {{/if}}
+<form action="/uploadCloud" method="post" enctype="multipart/form-data">
+    <section>
+    <h2>Upload your photo</h2>
+    <input type="file" name="photo">
+    <input type="submit" value="create account">
+    </section>
+    </form>
+<a href="/">Back to home</a>
