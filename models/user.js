@@ -5,9 +5,8 @@ const userSchema = new Schema({
   namereal: String,
   username: String,
   password: String,
-  fecha: String,
-  pais: String,
-  img: String
+  img: String,
+  pais: String
 }, {
   timestamps: {
     createdAt: 'created_at',

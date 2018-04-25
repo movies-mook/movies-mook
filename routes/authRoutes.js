@@ -18,7 +18,6 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
   const namereal = req.body.namereal;
   const username = req.body.username;
   const password = req.body.password;
-  const fecha = req.body.fecha;
   const pais = req.body.pais;
   const img = req.file.url;
   console.log(req.file)
@@ -38,9 +37,8 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
       const newUser = new User({
         namereal,
-        fecha,
-        pais,
         username,
+        pais,
         img: req.file.url,
         password: hashPass
       });
@@ -75,6 +73,28 @@ router.get('/perfil/:id', (req, res, next) => {
     next(err);
   }); 
 });
+
+    router.get('/favorites/:id', (req, res, next) => {
+      User.findById(req.params.id)
+      .then ((user) => {
+      res.render('favlist/favorites');
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    }); 
+});
+    router.get('/watchlist/:id', (req, res, next) => {
+      User.findById(req.params.id)
+      .then ((user) => {
+      res.render('favlist/watchlist');
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    }); 
+});
+    
 
 router.post(
   "/login",

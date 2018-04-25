@@ -3,9 +3,10 @@
     {{#each data.movies}}
     <div class="movies__container flex">
         <div class="movies__container__title flex">
-            <h4>{{this.title}}</h4>
+        <a href="../movies/details/{{this.id}}"><h4>{{this.title}}</h4></a>
         </div>
-        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{this.poster_path}}" alt="">
+        <a href="../movies/details/{{this.id}}"><img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{this.poster_path}}" alt=""></a>
+        
         <div class="fav__watch">
             <div class="fav"><img src="../images/fav.png" alt=""></div>
             <div class="watch"><img src="../images/eye.png" alt=""></div>
