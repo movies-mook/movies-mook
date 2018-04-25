@@ -1,23 +1,13 @@
 {{#if user}}
-{{!-- <div class="container__search flex nvh">
-    <form action="/movies/title" method="POST" id="searchForm"></form>
-        <input type="text" name="search">
-        <input type="submit">
-            
-            <img src="../images/lupa.png" alt="">
-    
-    </form>
-</div> --}}
 
-<div class="nvh">
-    <form action="/movies/title" method="POST" id="form">
-    <div class="auth__label flex ">
-     
-      <input type="text" name="search" required placeholder="username">
+    <form action="/movies/title" method="POST" id="searchForm">
+    <div class="container__search nvh">
+        <input type="text" name="search">
+        <button>
+             <img src="../images/lupa.png" alt="">
+        </button>
     </div>
-    <button><H6>Sign in</H6></button>
-  </form>
-</div>
+    </form>
 {{else}}
 <div class="container__logo flex">
     <h1>Not Only</h1>
