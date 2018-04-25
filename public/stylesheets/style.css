@@ -23,6 +23,9 @@ a {
   text-decoration: none;
   color: whitesmoke;
 }
+a:hover {
+  text-decoration: underline;
+}
 h1 {
   margin-bottom: 1rem;
   /* color: rgb(247, 241, 241); */
@@ -80,10 +83,11 @@ body {
   flex-direction: column;
   width: 100%;
   height: calc(100vh - 60px);
+  padding-top: 10rem;
 }
 ul.flex {
-  width: 100%;
-
+  background: rgba(0,0,0,0.2);
+  padding: 2px;
 }
 .container__search  img {
   width: 30vmin;
@@ -95,17 +99,14 @@ ul.flex {
   max-width: 50%;
   font-size: 5rem;
   color: #333;
-  padding: 10px;
-  margin: 5rem;
+  margin-bottom: 2rem;
 }
 .nav__bar__search {
   width: 100%;
   margin-top: 60px;
   background: #e05038;
 }
-.nav__bar__search ul {
-  margin: 5px 0;
-}
+
 .nav__bar {
   width: 100%;
   height: 60px;
@@ -137,7 +138,7 @@ ul.flex {
   border: 1px solid rgba(0,0,0,0.3);
   background: #677077;
   max-width: 240px;
- 
+ border-radius: 4px;
 }
 .movies__container img {
   width: 240px;
@@ -212,9 +213,11 @@ ul.flex {
   padding: 3px;
   margin-left: 1rem;
   color: whitesmoke;
+  max-width: 100%;
 }
 .auth__label {
   margin: 1rem;
+  flex-wrap: wrap;
 }
 
 .auth__label button {
@@ -236,4 +239,45 @@ ul.flex {
 }
 .auth__label a:hover {
   text-decoration: underline;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #b5b5b7;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #252839;
+  color: whitesmoke;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  
+  background-color: #3e8e41;
 }

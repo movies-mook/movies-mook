@@ -1,91 +1,22 @@
-{{!-- {{#if user}}
-<div class="nav__bar__container">
-    <div class="nav__bar">
-        <div class="nav__bar__inner flex twenty">
-            <h4>Logo</h4>
-        </div>
-        <div class="nav__bar__iner flex sixty">
-            <li>
-                <a href="/movies/rated">Best Rated</a>
-            </li>
-            <li>
-                <a href="/movies/popular">Most Popular</a>
-            </li>
-            <li>
-                <a href="/movies/playing">Now Playing</a>
-            </li>
-            <li>
-                <a href="/movies/playing">Genre</a>
-            </li>
-        </div>
-        <div class="nav__bar__inner flex twenty">
-
-            <ul>
-                <li>
-                    <a href="/auth/perfil/{{user._id}}">{{user.username}}</a>
-                </li>
-                <li>
-                    <a href="/auth/logout">Log Out</a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-
-    <div class="container__search ">
-        <form action="" method="POST" id="searchForm"></form>
-        <ul class="flex">
-            <li>
-                <input type="text" name="search">
-            </li>
-            <li>
-                <button>
-                    <img src="../images/lupa.png" alt="">
-                </button>
-            </li>
-            </form>
-        </ul>
-    </div>
-</div>
-
-
-
-{{else}}
-
-<div class="nav__bar">
-    <div class="nav__bar__inner">
-        <h4>Logo</h4>
-    </div>
-    <div class="nav__bar__inner">
-        <ul>
-            <li>
-                <a href="/auth/login">Login</a>
-            </li>
-            <li>
-                <a href="/auth/signup">Signup</a>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="home__title text-center flex">
-    <h1>mooK</h1>
-</div>
-{{/if}}
-<a href="/moives"></a>
-<a href="/movie/..."></a> --}} 
 {{#if user}}
-<div class="container__search  ">
-    <form action="" method="POST" id="searchForm"></form>
-
-
-    <input type="text" name="search">
-
-
-    <button>
-        <img src="../images/lupa.png" alt="">
-    </button>
-
+{{!-- <div class="container__search flex nvh">
+    <form action="/movies/title" method="POST" id="searchForm"></form>
+        <input type="text" name="search">
+        <input type="submit">
+            
+            <img src="../images/lupa.png" alt="">
+    
     </form>
+</div> --}}
+
+<div class="nvh">
+    <form action="/movies/title" method="POST" id="form">
+    <div class="auth__label flex ">
+     
+      <input type="text" name="search" required placeholder="username">
+    </div>
+    <button><H6>Sign in</H6></button>
+  </form>
 </div>
 {{else}}
 <div class="container__logo flex">

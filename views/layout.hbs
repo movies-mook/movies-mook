@@ -37,12 +37,23 @@
       </div>
       <div class="nav__bar__inner flex twenty">
 
-        <ul>
+        <ul class="flex">
           <li>
-            <a href="/auth/perfil/{{user._id}}">{{user.username}}</a>
+            <div class="dropdown">
+              <button class="dropbtn">{{user.username}}</button>
+              <div class="dropdown-content">
+                <a href="/auth/perfil/{{user._id}}">Perfil</a>
+                 <a href="/auth/perfil/{{user._id}}">Favoritos</a>
+                 <a href="/auth/perfil/{{user._id}}">Watchlist</a>
+                 <a href="/auth/perfil/{{user._id}}">Log Out</a>
+              </div>
+            </div>
+            <a href="/auth/perfil/{{user._id}}"></a>
           </li>
           <li>
-            <a href="/auth/perfil/{{user._id}}"><img src="{{user.img}}" alt=""></a>
+            <a href="/auth/perfil/{{user._id}}">
+              <img src="{{user.img}}" alt="">
+            </a>
           </li>
           <li>
             <a href="/auth/logout">Log Out</a>
@@ -61,7 +72,7 @@
     <div class="nav__bar" style="border-bottom: 1px solid rgba(255,255,255,0.5)">
       <div class="nav__bar__inner flex twenty">
         <img src="../images/cinemalog.png" alt="">
-        
+
       </div>
       <div class="nav__bar__inner flex twenty">
         <ul>
@@ -75,10 +86,10 @@
       </div>
     </div>
   </div>
-  {{/if}}  {{{body}}} 
- 
-  <script   src="http://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
-  {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+  {{/if}} {{{body}}}
+
+  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> {{!--
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
   <script src='/javascripts/script.js' />
 </body>
 

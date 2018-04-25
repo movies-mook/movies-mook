@@ -1,63 +1,9 @@
-{{!-- <div class="auth__header flex nvh">
-    <h2>Sign Up</h2>
-</div>
-<div class="auth__container">
-    <form id="form" action="/auth/signup" method="POST">
-        <div class="auth__laber flex">
-            <label for="username">
-                <h5>Username</h5>
-            </label>
-            <input type="text" name="username" required placeholder="username">
-        </div>
-        <div class="auth__label flex">
-            <label for="password">
-                <h5>Password</h5>
-            </label>
-            <input type="password" name="password" required placeholder="password">
-        </div>
-        <div class="auth__label flex">
-            <label for="namereal">
-                <h5>Realname</h5>
-            </label>
-            <input type="text" name="namereal" required placeholder="real name">
-        </div>
-        <div class="auth__label flex">
-            <label for="fecha">
-                <h5>Fecha</h5>
-            </label>
-            <input type="text" name="fecha" step="1" min="2013-12" max="2014-12" value="2014-01">
-        </div>
-        <div class="auth__labe flex">
-            <label for="pais">
-                <h5>Pais</h5>
-            </label>
-            <input type="text" name="pais" required placeholder="pais">
-        </div>
-        {{#if errorMessage}}
-        <div class="error-message">{{ errorMessage }}</div>
-    </form>
-    {{/if}}
-    <form action="/uploadCloud" method="post" enctype="multipart/form-data">
-    <div class="auth__label flex">
-
-        <h2>Upload your photo</h2>
-        <input type="file" name="photo">
-        <div class="auth__label flex">
-            <button>
-                <h6>Create account</h6>
-            </button>
-            
-        </div>
-  
-    </div>
-</form>
-</div> --}}
 <div class="auth__header flex nvh">
     <h2>Sign Up</h2>
 </div>
 <div class="auth__container">
     <form id="form" action="/auth/signup" method="POST" enctype="multipart/form-data">
-        <div class="auth__laber flex">
+        <div class="auth__label flex">
             <label for="username">
                 <h5>Username</h5>
             </label>
@@ -75,33 +21,24 @@
             </label>
             <input type="text" name="namereal" required placeholder="real name">
         </div>
-        <div class="auth__label flex">
-            <label for="fecha">
-                <h5>Fecha</h5>
-            </label>
-            <input type="text" name="fecha" value="fecha de nacimiento">
-        </div>
-        <div class="auth__labe flex">
-            <label for="pais">
-                <h5>Pais</h5>
-            </label>
-            <input type="text" name="pais" required placeholder="pais">
-        </div>
         {{#if errorMessage}}
         <div class="error-message">{{ errorMessage }}</div>
     </form>
     {{/if}}
-    <div class="auth__label flex">
-        <form action="/uploadCloud" method="post" enctype="multipart/form-data">
-            <section>
-                <h2>Upload your photo</h2>
-                <input type="file" name="photo">
-                <div class="auth__label flex">
-                    <button>
-                        <h6>Create account</h6>
-                    </button>
-                </div>
-            </section>
-        </form>
-    </div>
+
+    <form action="/uploadCloud" method="post" enctype="multipart/form-data">
+        <div class="auth__label flex">
+            <h5>Upload your photo</h5>
+        </div>
+        <div class="auth__label flex">
+            <input type="file" name="photo">
+        </div>
+        
+        <div class="auth__label flex">
+            <button>
+                <h6>Create account</h6>
+            </button>
+       </div>
+    </form>
+
 </div>

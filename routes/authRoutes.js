@@ -18,8 +18,6 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
   const namereal = req.body.namereal;
   const username = req.body.username;
   const password = req.body.password;
-  const fecha = req.body.fecha;
-  const pais = req.body.pais;
   const img = req.file.url;
   console.log(req.file)
 
@@ -38,8 +36,6 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
       const newUser = new User({
         namereal,
-        fecha,
-        pais,
         username,
         img: req.file.url,
         password: hashPass
