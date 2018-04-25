@@ -21,16 +21,17 @@
     <br>
     <label for="pais">Pais</label>
     <br>
-    <input type="text" name="pais" required placeholder="pais"> 
-    {{#if errorMessage}}
+    <input type="text" name="pais" required placeholder="pais"> {{#if errorMessage}}
     <div class="error-message">{{ errorMessage }}</div>
-  </form>
-    {{/if}}
+</form>
+{{/if}}
+
 <form action="/uploadCloud" method="post" enctype="multipart/form-data">
     <section>
-    <h2>Upload your photo</h2>
-    <input type="file" name="photo">
-    <input type="submit" value="create account">
+        <h2>Upload your photo</h2>
+        <input type="file" name="photo">
+        <input type="submit" value="create account">
     </section>
-    </form>
+</form>
+
 <a href="/">Back to home</a>
