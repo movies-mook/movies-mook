@@ -87,4 +87,10 @@ router.post("/title", (req, res) => {
   });
 });
 
+router.get('/details/:id', (req, res, next) => {
+  mdb.movieInfo({id: req.params.id}, (err, movie) => {
+    console.log(movie)
+    res.render('movies/details', {movie});
+  });
+  
 module.exports = router;

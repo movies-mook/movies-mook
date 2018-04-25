@@ -69,6 +69,7 @@ app.use("/", index);
 
 const authRoutes = require("./routes/authRoutes");
 app.use("/auth", authRoutes);
+app.use("/favlist", authRoutes);
 
 const movies = require("./routes/movies");
 app.use("/movies", movies);

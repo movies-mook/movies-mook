@@ -37,6 +37,7 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
       const newUser = new User({
         namereal,
         username,
+        pais,
         img: req.file.url,
         password: hashPass
       });
@@ -71,6 +72,28 @@ router.get('/perfil/:id', (req, res, next) => {
     next(err);
   }); 
 });
+
+    router.get('/favorites/:id', (req, res, next) => {
+      User.findById(req.params.id)
+      .then ((user) => {
+      res.render('favlist/favorites');
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    }); 
+});
+    router.get('/watchlist/:id', (req, res, next) => {
+      User.findById(req.params.id)
+      .then ((user) => {
+      res.render('favlist/watchlist');
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    }); 
+});
+    
 
 router.post(
   "/login",
