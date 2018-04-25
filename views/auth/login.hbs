@@ -1,19 +1,29 @@
-<form action="/auth/login" method="POST" id="form">
-  <h2>Login</h2>
+<div class="auth__header flex nvh">
+   <h2>Login</h2>
+</div>
+<div class="auth__container flex">
+  <form action="/auth/login" method="POST" id="form">
+    <div class="auth__label flex">
+      <label for="username"><H5>Username</H5></label>
+      <input type="text" name="username" required placeholder="username">
+    </div>
 
-  <label for="username">Username</label>
-  <input type="text" name="username" required placeholder="username">
-
-  <label for="password">Password</label>
-  <input type="password" name="password" required placeholder="password">
-
-  {{#if errorMessage }}
+    <div class="auth__label flex">
+      <label for="password"><H5>Password</H5></label>
+      <input type="password" name="password" required placeholder="password">
+    </div>
+    {{#if errorMessage }}
     <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
+    {{/if}}
 
-  <button>Sign in</button>
-
-  <p class="account-message">
-    Don't have an account? <a href="/auth/signup">Sign up</a>
-  </p>
-</form>
+    <div class="auth__label flex">
+      <button><H6>Sign in</H6></button>
+    </div>
+    <div class="auth__label flex">
+      <p class="account-message">
+        Don't have an account?
+        <a href="/auth/signup">Sign up</a>
+      </p>
+    </div>
+  </form>
+</div>
