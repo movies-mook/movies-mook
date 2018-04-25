@@ -92,5 +92,5 @@ router.get('/details/:id', (req, res, next) => {
     console.log(movie)
     res.render('movies/details', {movie});
   });
-  
+}); 
 module.exports = router;
