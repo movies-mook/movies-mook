@@ -1,19 +1,5 @@
-<div class=" nav__bar">
-    <div class="nav__bar__inner">
-        <h4>Logo</h4>
-    </div>
-    <div class="nav__bar__inner">
-        <ul>
-            <li>
-                <a href="/auth/perfil/{{data.user._id}}">{{data.user.username}}</a>
-            </li>
-            <li>
-                <a href="/auth/logout">Log Out</a>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="search__container">
+
+<div class="search__container nvh">
     {{#each data.movies}}
     <div class="movies__container flex">
         <div class="movies__container__title flex">

@@ -43,6 +43,11 @@ require("./passport")(app);
 
 // Express View engine setup
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+})
+
 app.use(
   require("node-sass-middleware")({
     src: path.join(__dirname, "public"),

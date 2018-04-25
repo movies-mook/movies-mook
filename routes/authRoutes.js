@@ -47,7 +47,7 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
       return newUser.save();
     })
     .then(newUser => {
-      res.redirect("/");
+      res.redirect("/auth/login");
     })
     .catch(e => {
       res.render("auth/signup", { message: e.message });
