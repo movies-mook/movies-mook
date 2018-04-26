@@ -1,16 +1,29 @@
-
-<div class="search__container nvh">
-    {{#each data.movies}}
-    <div class="movies__container flex">
-        <div class="movies__container__title flex">
-        <a href="../movies/details/{{this.id}}"><h4>{{this.title}}</h4></a>
+<div class="outer__container">
+    <div class="search__container nvh">
+        {{#each data.movies}}
+        <div class="movies__container flex">
+            {{!--
+            <div class="movies__container__title flex">
+                <a href="../movies/details/{{this.id}}">
+                    <h4>{{this.title}}</h4>
+                </a>
+            </div> --}}
+            <a href="../movies/details/{{this.id}}">
+                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{this.poster_path}}" alt="">
+            </a>
+            <div class="fav__watch flex">
+                <div class="fav flex">
+                    <a href="/movies/addFav/{{this.id}}">
+                        <img src="../images/fav.png" alt="">
+                    </a>
+                </div>
+                <div class="watch flex">
+                    <a href="/movies/addWish/{{this.id}}">
+                        <img src="../images/eye.png" alt="">
+                    </a>
+                </div>
+            </div>
         </div>
-        <a href="../movies/details/{{this.id}}"><img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{this.poster_path}}" alt=""></a>
-        
-        <div class="fav__watch">
-        <div class="fav"><a href="/movies/addFav/{{this.id}}"><img src="../images/fav.png" alt=""></a></div>
-            <div class="watch"><a href="/movies/addWish/{{this.id}}"><img src="../images/eye.png" alt=""></a></div>
-        </div>
+        {{/each}}
     </div>
-    {{/each}}
 </div>

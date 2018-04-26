@@ -70,35 +70,32 @@ router.get("/perfil/:id", (req, res, next) => {
       let data = {
         date: fecha,
         user
-      }
-
+      };
       res.render("auth/perfil", { data });
     })
     .catch(err => {
-      console.log(err);
       next(err);
     });
 });
 
-
-const getMovieById = (id) =>{
-  return new Promise((resolve, reject)=>{
-    mdb.movieInfo({id}, (err, movie) => {           
-      err ? reject():resolve(movie);   
+const getMovieById = id => {
+  return new Promise((resolve, reject) => {
+    mdb.movieInfo({ id }, (err, movie) => {
+      err ? reject() : resolve(movie);
     });
-  })
-}
+  });
+};
 
 router.get("/favorites/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(user => {
       let fav = user.favorites;
       Promise.all(fav.map(id => getMovieById(id)))
-      .then((movies) => {
-        console.log(movies)
-        res.render("favlist/favorites", {movies});
-      })
-      .catch(e => next(e))
+        .then(movies => {
+          console.log(movies);
+          res.render("favlist/favorites", { movies });
+        })
+        .catch(e => next(e));
     })
     .catch(err => {
       console.log(err);

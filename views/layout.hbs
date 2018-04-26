@@ -2,15 +2,15 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
   {{!--
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker-standalone.css">
-  <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script> --}}
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> --}}
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+    crossorigin="anonymous">
 </head>
 
 <body>
@@ -18,39 +18,12 @@
   {{#if user}}
   <div class="nav__bar__container">
     <div class="nav__bar">
-      <div class="nav__bar__inner flex twenty">
-       <a href="/"><img src="/images/cinemalog.png" alt=""></a> 
+      <div class="nav__bar__inner flex twenty ">
+        <a href="/">
+          <img src="/images/cinemalog.png" alt="">
+        </a>
       </div>
-      <div class="nav__bar__iner flex sixty">
-        <li>
-          <a href="/movies/rated">Best Rated</a>
-        </li>
-        <li>
-          <a href="/movies/popular">Most Popular</a>
-        </li>
-        <li>
-          <a href="/movies/playing">Now Playing</a>
-        </li>
-        <li>
-           <div class="dropdown">
-              <button class="dropbtn">
-                <a href="#">Genres</a>
-              </button>
-              <div class="dropdown-content">
-                <a href="/movies/action">Action</a>
-                <a href="/movies/adventures">Adventures</a>
-                <a href="/movies/animation">Animation</a>
-                <a href="/movies/comedy">Comedy</a>
-                <a href="/movies/drama">Drama</a>
-                <a href="/movies/horror">Horror</a>
-                <a href="/movies/scifi">Sci-Fi</a>
-                <a href="/movies/thriller">Thriller</a>
-              </div>
-            </div>
-        </li>
-      </div>
-      <div class="nav__bar__inner flex twenty">
-
+      <div class="nav__bar__iner flex  hide-mobile user-nav-menu">
         <ul class="flex">
           <li>
             <div class="dropdown">
@@ -66,12 +39,42 @@
             </div>
           </li>
           <li>
-              <img src="{{user.img}}" alt="">
+            <img src="{{user.img}}" alt="">
             </a>
           </li>
         </ul>
       </div>
     </div>
+  </div>
+  <div class="home__header flex">
+    <ul>
+      <li>
+        <a href="/movies/rated">Top Rated</a>
+      </li>
+      <li>
+        <a href="/movies/popular">Popular</a>
+      </li>
+      <li>
+        <a href="/movies/playing">Now Playing</a>
+      </li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <a href="#">Genres</a>
+          </button>
+          <div class="dropdown-content">
+            <a href="/movies/action">Action</a>
+            <a href="/movies/adventures">Adventures</a>
+            <a href="/movies/animation">Animation</a>
+            <a href="/movies/comedy">Comedy</a>
+            <a href="/movies/drama">Drama</a>
+            <a href="/movies/horror">Horror</a>
+            <a href="/movies/scifi">Sci-Fi</a>
+            <a href="/movies/thriller">Thriller</a>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
   {{else}}
   <div class="nav__bar__container">
@@ -80,7 +83,7 @@
         <img src="/images/cinemalog.png" alt="">
 
       </div>
-      <div class="nav__bar__inner flex twenty">
+      <div class="nav__bar__inner flex twenty" id="login__off">
         <ul>
           <li>
             <a href="/auth/login">Login</a>
@@ -92,11 +95,9 @@
       </div>
     </div>
   </div>
-  {{/if}} 
-  {{{body}}} 
-  <script   src="http://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
-  {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
-  <script src='/javascripts/script.js' />
+  {{/if}} {{{body}}}
+  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src='/javascripts/script.js'></script>
 </body>
 
 </html>

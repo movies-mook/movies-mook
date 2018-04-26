@@ -1,9 +1,26 @@
-<div class="nvh">
-<p>{{user.username}}</p>
-<p>{{user.namereal}}</p>
-<p>{{user.pais}}</p>
-<p>{{data.date}}</p>
-<img src="{{user.img}}">
-<a href="../../favlist/favorites/{{user._id}}">favorites</a>
-<a href="../../favlist/watchlist/{{user._id}}">watchlist</a>
+<div id="perfil__container" class="outer__container flex">
+    <div class="user__img__container">
+        <div class="user__img">
+            <img src="{{user.img}}">
+        </div>
+        <div class="user__favlist flex">
+            <a href="../../favlist/favorites/{{user._id}}">
+                <img src="../../images/fav.png" alt="">
+            </a>
+            <a href="../../favlist/watchlist/{{user._id}}">
+                <img src="../../images/eye.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="user__main__info flex__column">
+        <div class="user__name">
+            <h2>{{user.username}}</h2>
+        </div>
+
+        <div class="user__info">
+            <p>{{user.pais}} fan</p>
+        </div>
+    </div>
 </div>
+{{!--
+<p>{{data.date}}</p> --}}

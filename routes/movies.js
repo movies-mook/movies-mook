@@ -88,6 +88,7 @@ router.post("/title", (req, res) => {
   });
 });
 
+// Details
 router.get('/details/:id', (req, res, next) => {
   mdb.movieInfo({id: req.params.id}, (err, movie) => {
     res.render('movies/details', {movie});
