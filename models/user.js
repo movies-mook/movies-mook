@@ -5,12 +5,12 @@ const userSchema = new Schema({
   namereal: String,
   username: String,
   password: String,
-<<<<<<< HEAD
-  img: String
-=======
+  fecha: Date,
   img: String,
-  pais: String
->>>>>>> 925c410e40397436c89e9a372c17736c26dd5978
+  pais: String,
+  favorites: Array,
+  wish: Array
+
 }, {
   timestamps: {
     createdAt: 'created_at',

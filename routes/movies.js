@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const router = express.Router();
+const User = require('../models/User');
 const mdb = require("moviedb")(process.env.API_KEY);
 
 // Búsquedas por defecto
@@ -89,8 +90,23 @@ router.post("/title", (req, res) => {
 
 router.get('/details/:id', (req, res, next) => {
   mdb.movieInfo({id: req.params.id}, (err, movie) => {
-    console.log(movie)
     res.render('movies/details', {movie});
   });
-}); 
+});
+
+router.get('/addFav/:id', (req, res, next) => {
+  User.findOneAndUpdate({_id: req.user}, {$push: {favorites: req.params.id}}, {new:true})
+  .then((us) => {
+    res.redirect('back');
+  })
+})
+
+
+// router.get('account/:id/favorite_movies', (req, res, next) => {
+//   mdb.accountFavoriteMovies({}, (err, movie) => {
+//     let data = { user: req.user, movies: re.results };
+//     res.render('favlist/favorites', {data});
+//   });
+// });
+
 module.exports = router;

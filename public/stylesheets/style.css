@@ -49,7 +49,6 @@ li {
 ul {
   list-style: none;
   float: right;
-  
 }
 li {
   display: inline-block;
@@ -92,9 +91,18 @@ body {
 ul.flex:hover {
   background-color: rgba(0,0,0,0.3);
 }
-.container__search  img {
+.container__search img {
   width: 30vmin;
   opacity: 0.5;
+  border: 70px solid transparent;
+  border-radius: 0;
+  margin: 15px;
+}
+.container__search img:hover {
+  width: 30vmin;
+  opacity: 0.5;
+  border: none;
+  border-radius: 0;
 }
 .container__search input {
   height: 100px;
@@ -286,3 +294,16 @@ ul.flex:hover {
   
   color: #e6af4b;
 } */
+.photoperfil:hover {
+  background-color: #252839;
+}
+.photoperfil {
+  border-radius: 10px;
+}
+.pais_fecha:hover{
+background-color: #b5b5b7;
+}
+.buscar{
+color: #252839;
+font-size: 100px;
+}

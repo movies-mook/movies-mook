@@ -6,21 +6,23 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const ensureLogin = require("connect-ensure-login");
-const multer  = require('multer');
+const multer = require("multer");
 const User = require("../models/User");
-const uploadCloud = require('../config/cloudinary.js');
+const uploadCloud = require("../config/cloudinary.js");
+const mdb = require("moviedb")(process.env.API_KEY);
 
 router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
-router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
+router.post("/signup", uploadCloud.single("photo"), (req, res, next) => {
   const namereal = req.body.namereal;
   const username = req.body.username;
   const password = req.body.password;
+  const pais = req.body.pais;
+  const fecha = req.body.fecha;
   const img = req.file.url;
-  console.log(req.file)
-
+  // const favorites = req.body.favorites;
 
   if (username === "" || password === "") {
     res.render("auth/signup", {
@@ -28,7 +30,6 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
     });
     reject();
   }
-
   User.findOne({ username })
     .then(user => {
       if (user !== null) throw new Error("The username already exists");
@@ -38,7 +39,9 @@ router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
         namereal,
         username,
         pais,
+        fecha,
         img: req.file.url,
+        // favorites: favorites.push({data}),
         password: hashPass
       });
       return newUser.save();
@@ -55,45 +58,63 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login");
 });
 
-
-
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
-router.get('/perfil/:id', (req, res, next) => {
+router.get("/perfil/:id", (req, res, next) => {
   User.findById(req.params.id)
-  .then ((user) => {
-    res.render('auth/perfil', { user });
-  })
-  .catch((err) => {
-    console.log(err);
-    next(err);
-  }); 
+    .then(user => {
+      var fecha = user.fecha.toDateString();
+      let data = {
+        date: fecha,
+        user
+      }
+
+      res.render("auth/perfil", { data });
+    })
+    .catch(err => {
+      console.log(err);
+      next(err);
+    });
 });
 
-    router.get('/favorites/:id', (req, res, next) => {
-      User.findById(req.params.id)
-      .then ((user) => {
-      res.render('favlist/favorites');
+
+const getMovieById = (id) =>{
+  return new Promise((resolve, reject)=>{
+    mdb.movieInfo({id}, (err, movie) => {           
+      err ? reject():resolve(movie);   
+    });
+  })
+}
+
+router.get("/favorites/:id", (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      let fav = user.favorites;
+      Promise.all(fav.map(id => getMovieById(id)))
+      .then((movies) => {
+        console.log(movies)
+        res.render("favlist/favorites", {movies});
+      })
+      .catch(e => next(e))
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       next(err);
-    }); 
+    });
 });
-    router.get('/watchlist/:id', (req, res, next) => {
-      User.findById(req.params.id)
-      .then ((user) => {
-      res.render('favlist/watchlist');
+router.get("/watchlist/:id", (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.render("favlist/watchlist");
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       next(err);
-    }); 
+    });
 });
-    
 
 router.post(
   "/login",

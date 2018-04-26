@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "dev": "DEBUG=movies-jd-data:* nodemon ./bin/www"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "express": "~4.16.0",
     "express-session": "^1.15.6",
     "hbs": "~4.0.1",
+    "jquery": "^3.3.1",
     "mongoose": "~4.13.4",
     "morgan": "~1.9.0",
     "moviedb": "^0.2.10",

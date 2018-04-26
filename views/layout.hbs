@@ -19,7 +19,7 @@
   <div class="nav__bar__container">
     <div class="nav__bar">
       <div class="nav__bar__inner flex twenty">
-       <a href="/"><img src="../images/cinemalog.png" alt=""></a> 
+       <a href="/"><img src="/images/cinemalog.png" alt=""></a> 
       </div>
       <div class="nav__bar__iner flex sixty">
         <li>
@@ -55,18 +55,17 @@
           <li>
             <div class="dropdown">
               <button class="dropbtn">
-                <a href="/auth/perfil/{{user._id}}">{{user.username}}</a>
+                <a>{{user.username}}</a>
               </button>
               <div class="dropdown-content">
                 <a href="/auth/perfil/{{user._id}}">Perfil</a>
-                <a href="/auth/perfil/{{user._id}}">Favoritos</a>
-                <a href="/auth/perfil/{{user._id}}">Watchlist</a>
+                <a href="/favlist/favorites/{{user._id}}">favorites</a>
+                <a href="/favlist/watchlist/{{user._id}}">watchlist</a>
                 <a href="/auth/logout">Log Out</a>
               </div>
             </div>
           </li>
           <li>
-            <a href="/auth/perfil/{{user._id}}">
               <img src="{{user.img}}" alt="">
             </a>
           </li>
@@ -78,7 +77,7 @@
   <div class="nav__bar__container">
     <div class="nav__bar">
       <div class="nav__bar__inner flex twenty">
-        <img src="../images/cinemalog.png" alt="">
+        <img src="/images/cinemalog.png" alt="">
 
       </div>
       <div class="nav__bar__inner flex twenty">
@@ -93,7 +92,7 @@
       </div>
     </div>
   </div>
-  {{/if}}  
+  {{/if}} 
   {{{body}}} 
   <script   src="http://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
   {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
