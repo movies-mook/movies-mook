@@ -9,7 +9,7 @@ const userSchema = new Schema({
   img: String,
   pais: String,
   favorites: Array,
-  wish: Array
+  watchlist: Array
 
 }, {
   timestamps: {

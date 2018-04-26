@@ -78,7 +78,7 @@ router.get("/perfil/:id", (req, res, next) => {
     });
 });
 
-const getMovieById = id => {
+const getMovieByIdfav = id => {
   return new Promise((resolve, reject) => {
     mdb.movieInfo({ id }, (err, movie) => {
       err ? reject() : resolve(movie);
@@ -90,7 +90,7 @@ router.get("/favorites/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(user => {
       let fav = user.favorites;
-      Promise.all(fav.map(id => getMovieById(id)))
+      Promise.all(fav.map(id => getMovieByIdfav(id)))
         .then(movies => {
           console.log(movies);
           res.render("favlist/favorites", { movies });
@@ -102,10 +102,36 @@ router.get("/favorites/:id", (req, res, next) => {
       next(err);
     });
 });
+
+// router.get("/watchlist/:id", (req, res, next) => {
+//   User.findById(req.params.id)
+//     .then(user => {
+//       res.render("favlist/watchlist");
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       next(err);
+//     });
+// });
+const getMovieByIdlist = id => {
+  return new Promise((resolve, reject) => {
+    mdb.movieInfo({ id }, (err, movie) => {
+      err ? reject() : resolve(movie);
+    });
+  });
+};
+
+
 router.get("/watchlist/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(user => {
-      res.render("favlist/watchlist");
+      let watch = user.watchlist;
+      Promise.all(watch.map(id => getMovieByIdlist(id)))
+        .then(movies => {
+          console.log(movies);
+          res.render("favlist/watchlist", { movies });
+        })
+        .catch(e => next(e));
     })
     .catch(err => {
       console.log(err);

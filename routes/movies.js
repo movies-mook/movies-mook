@@ -102,6 +102,12 @@ router.get('/addFav/:id', (req, res, next) => {
   })
 })
 
+router.get('/addWish/:id', (req, res, next) => {
+  User.findOneAndUpdate({_id: req.user}, {$push: {watchlist: req.params.id}}, {new:true})
+  .then((usx) => {
+    res.redirect('back');
+  })
+})
 
 // router.get('account/:id/favorite_movies', (req, res, next) => {
 //   mdb.accountFavoriteMovies({}, (err, movie) => {

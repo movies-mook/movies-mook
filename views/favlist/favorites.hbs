@@ -1,18 +1,12 @@
-<div class="search__container nvh">
-    <div class="movies__container flex">
-        <div class="movies__container__title flex">
-            <h4>{{movie.title}}</h4>
-        </div>
-        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
-        <div class="fav__watch">
-            <div class="fav"><img src="../../images/fav.png" alt=""></div>
-            <div class="watch"><img src="../../images/eye.png" alt=""></div>
+{{#each movies}}
+<div class="outer__container flex">
+    <div class="movie__detail__container flex">
+        <div class="movie__detail__left flex__column">
+                        <h2> {{this.title}}</h2>
+            <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{this.poster_path}}" alt="">
+            
         </div>
     </div>
-    <h5>{{movie.popularity}}</h5>
-    <h5>{{movie.vote_average}}</h5>
-    
-    <p style="width:30vh">{{movie.overview}}</p>
-
-    <p>{{movie.title}}</p>
 </div>
+    {{/each}}
+
