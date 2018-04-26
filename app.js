@@ -13,7 +13,7 @@ const path = require("path");
 const app_name = require("./package.json").name;
 mongoose.Promise = Promise;
 mongoose
-  .connect(`mongodb://localhost/movies-jd-data`, { useMongoClient: true })
+  .connect(process.env.DB_URL, { useMongoClient: true })
   .then(() => {
     console.log("Connected to Mongo!");
   })
