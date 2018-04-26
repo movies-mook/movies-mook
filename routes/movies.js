@@ -87,10 +87,26 @@ router.post("/title", (req, res) => {
   });
 });
 
+// Details
 router.get('/details/:id', (req, res, next) => {
   mdb.movieInfo({id: req.params.id}, (err, movie) => {
     console.log(movie)
     res.render('movies/details', {movie});
   });
 }); 
+
+// Fav & Watch
+router.get('/favorites/:id', (req, res, next) => {
+  mdb.searchMovie({id: req.params.id}, (err, re) => {
+    let data = { user: req.user, movies: re.results };
+    res.render('favlist/favorites', {data});
+  });
+}); 
+router.get('/watchlist/:id', (req, res, next) => {
+  mdb.searchMovie({id: req.params.id}, (err, movie) => {
+    console.log(movie)
+    res.render('favlist/watchlist', {movie});
+  });
+}); 
+
 module.exports = router;

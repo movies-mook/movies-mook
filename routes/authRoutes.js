@@ -6,21 +6,21 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const ensureLogin = require("connect-ensure-login");
-const multer  = require('multer');
+const multer = require("multer");
 const User = require("../models/User");
-const uploadCloud = require('../config/cloudinary.js');
+const uploadCloud = require("../config/cloudinary.js");
 
 router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
-router.post("/signup",uploadCloud.single('photo'), (req, res, next) => {
+router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
   const namereal = req.body.namereal;
   const username = req.body.username;
   const password = req.body.password;
+  const pais = req.body.pais;
   const img = req.file.url;
-  console.log(req.file)
-
+  console.log(req.file);
 
   if (username === "" || password === "") {
     res.render("auth/signup", {
@@ -55,45 +55,42 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login");
 });
 
-
-
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
-router.get('/perfil/:id', (req, res, next) => {
+router.get("/perfil/:id", (req, res, next) => {
   User.findById(req.params.id)
-  .then ((user) => {
-    res.render('auth/perfil', { user });
-  })
-  .catch((err) => {
-    console.log(err);
-    next(err);
-  }); 
+    .then(user => {
+      res.render("auth/perfil", { user });
+    })
+    .catch(err => {
+      console.log(err);
+      next(err);
+    });
 });
 
-    router.get('/favorites/:id', (req, res, next) => {
-      User.findById(req.params.id)
-      .then ((user) => {
-      res.render('favlist/favorites');
+router.get("/favorites/:id", (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.render("favlist/favorites");
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       next(err);
-    }); 
+    });
 });
-    router.get('/watchlist/:id', (req, res, next) => {
-      User.findById(req.params.id)
-      .then ((user) => {
-      res.render('favlist/watchlist');
+router.get("/watchlist/:id", (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.render("favlist/watchlist");
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       next(err);
-    }); 
+    });
 });
-    
 
 router.post(
   "/login",

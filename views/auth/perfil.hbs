@@ -1,64 +1,24 @@
-{{#if user}}
-  <div class="nav__bar__container">
-    <div class="nav__bar">
-      <div class="nav__bar__inner flex twenty">
-       <a href="/"><img src="../../images/cinemalog.png" alt=""></a> 
-      </div>
-      <div class="nav__bar__iner flex sixty">
-        <li>
-          <a href="/movies/rated">Best Rated</a>
-        </li>
-        <li>
-          <a href="/movies/popular">Most Popular</a>
-        </li>
-        <li>
-          <a href="/movies/playing">Now Playing</a>
-        </li>
-        <li>
-          <a href="/movies/horror">Genre</a>
-        </li>
-      </div>
-      <div class="nav__bar__inner flex twenty">
+<div id="perfil__container" class="outer__container flex">
+    <div class="user__img__container">
+        <div class="user__img">
+            <img src="{{user.img}}">
+        </div>
+        <div class="user__favlist flex">
+            <a href="../../favlist/favorites/{{user._id}}">
+                <img src="../../images/fav.png" alt="">
+            </a>
+            <a href="../../favlist/watchlist/{{user._id}}">
+                <img src="../../images/eye.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="user__main__info flex__column">
+        <div class="user__name">
+            <h2>{{user.username}}</h2>
+        </div>
 
-        <ul>
-          <li>
-            <a href="/auth/perfil/{{user._id}}">{{user.username}}</a>
-          </li>
-          <li>
-            <a href="/auth/perfil/{{user._id}}"><img src="{{user.img}}" alt=""></a>
-          </li>
-          <li>
-            <a href="/auth/logout">Log Out</a>
-          </li>
-        </ul>
-      </div>
+        <div class="user__info">
+            <p>{{user.pais}} fan</p>
+        </div>
     </div>
-  </div>
-  {{else}}
-  <div class="nav__bar__container">
-    <div class="nav__bar">
-      <div class="nav__bar__inner flex twenty">
-       <a href="/"><img src="../images/cinemalog.png" alt=""></a> 
-        
-      </div>
-      <div class="nav__bar__inner flex twenty">
-        <ul>
-          <li>
-            <a href="/auth/login">Login</a>
-          </li>
-          <li>
-            <a href="/auth/signup">Signup</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  {{/if}}  
-<div class="nvh">
-<p>{{user.username}}</p>
-<p>{{user.namereal}}</p>
-<p>{{user.pais}}</p>
-<img src="{{user.img}}">
-<a href="../../favlist/favorites/{{user._id}}">favorites</a>
-<a href="../../favlist/watchlist/{{user._id}}">watchlist</a>
 </div>
