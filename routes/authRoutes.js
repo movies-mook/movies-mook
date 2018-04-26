@@ -66,7 +66,7 @@ router.get("/logout", (req, res) => {
 router.get("/perfil/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(user => {
-      var fecha = user.fecha.toDateString();
+      let fecha = user.fecha.toDateString();
       let data = {
         date: fecha,
         user
