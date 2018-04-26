@@ -454,7 +454,7 @@ ul.flex img {
   }
   .movie__detail__container {
     width: 100%;
-    padding-top: 70vh;
+    padding-top: 10px;
     padding-bottom: 10vh;
     flex-direction: column-reverse;
   }
@@ -472,6 +472,13 @@ ul.flex img {
     margin: 0.5rem !important;
   }
  .outer__container {
-    flex-direction: column-reverse;
+   height: initial;
+   align-items: unset;
+  }
+  .user-nav-menu img {
+    display: none;
+  }
+  .movie__detail__right {
+    height: initial;
   }
 }
