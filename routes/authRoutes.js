@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
@@ -64,9 +65,7 @@ router.get("/logout", (req, res) => {
 router.get("/perfil/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(user => {
-      // var fecha = user.fecha.toDateString();
       let data = {
-        // date: fecha,
         user
       };
       res.render("auth/perfil", { data });
@@ -74,6 +73,37 @@ router.get("/perfil/:id", (req, res, next) => {
     .catch(err => {
       next(err);
     });
+});
+router.get("/editperfil/:id", (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      let datas = {
+        user
+      };
+      res.render("auth/editperfil", { datas });
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+router.post("/editperfil/:id", uploadCloud.single("photo"), (req, res) => {
+  const { username, fan, namereal } = req.body;
+  const updates = { username, fan, namereal};
+  if(req.file){ 
+    const img = req.file.url;
+    updates.img = img;
+  }else {
+    const img = req.user.img; 
+    updates.img = img;   
+  }
+  User.findByIdAndUpdate(req.params.id, updates)
+  .then(() => {
+    res.redirect(`/auth/perfil/${req.user.id}`);
+  })
+  .catch((err) => {
+    console.log(err);
+    next(err);
+  }); 
 });
 
 const getMovieByIdfav = id => {
@@ -147,5 +177,4 @@ router.post(
     passReqToCallback: false
   })
 );
-
 module.exports = router;
