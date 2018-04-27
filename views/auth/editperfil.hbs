@@ -1,0 +1,15 @@
+<div id="perfil__container" class="outer__container flex">
+    {{#with user}}
+    <form action="/auth/editperfil/{{_id}}" method="post" enctype="multipart/form-data">
+        <label for="">username:</label>
+        <input type="text" name="username" value="{{username}}">
+        <label for="">namereal:</label>
+        <input type="text" name="namereal" value="{{namereal}}">
+        <label for="">fan:</label>
+        <input type="text" name="fan" value="{{fan}}">
+
+        <input type="file" name="photo" id="myPhoto">
+        <button type="submit">Edit User</button>
+    </form>
+    {{/with}}
+</div>
