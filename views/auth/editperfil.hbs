@@ -1,4 +1,4 @@
-<div id="perfil__container" class="outer__container flex">
+{{!-- <div id="perfil__container" class="outer__container flex">
     {{#with user}}
     <form action="/auth/editperfil/{{_id}}" method="post" enctype="multipart/form-data">
         <label for="">username:</label>
@@ -10,6 +10,60 @@
 
         <input type="file" name="photo" id="myPhoto">
         <button type="submit">Edit User</button>
+    </form>
+    {{/with}}
+</div> --}}
+
+<div class="auth__header flex " style="background: transparent; border: none;">
+    <h3>Edit profile</h3>
+</div>
+<div class="auth__container">
+    
+    {{#with user}}
+    <form action="/auth/editperfil/{{_id}}" method="POST" enctype="multipart/form-data">
+        <div class="auth__laber flex">
+            <label for="username">
+                <h5>Username</h5>
+            </label>
+            <input type="text" name="username" required value="{{username}}">
+        </div>
+        <div class="auth__label flex">
+            <label for="namereal">
+                <h5>Real name</h5>
+            </label>
+            <input type="text" name="namereal" required value="{{namereal}}">
+        </div>
+        <div class="auth__label flex">
+            <h5>Favorite Genre</h5>
+            <select name="genre">
+                <option value="Action">Action</option>
+                <option value="Adventures">Adventures</option>
+                <option value="Animation">Animation</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Thriller">Thriller</option>
+            </select>
+        </div>
+        {{#if errorMessage}}
+        <div class="error-message">{{ errorMessage }}</div>
+        {{/if}}
+
+        <div class="auth__label flex__column">
+            <section class="flex__column">
+                <label for="photo">
+                    <h5>Profile img</h5>
+                </label>
+
+                <input type="file" name="photo" id="myPhoto">
+                <div class="auth__label flex">
+                    <button>
+                        <h6>Keep Changes</h6>
+                    </button>
+                </div>
+            </section>
+        </div>
     </form>
     {{/with}}
 </div>

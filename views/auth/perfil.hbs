@@ -1,36 +1,45 @@
 <div id="perfil__container" class="outer__container ">
     <div class="user__new__container ">
         <div class="user__img__container">
-        <div class="user__img">
-            <img src="{{user.img}}">
+            <div class="user__img">
+                <img src="{{user.img}}">
+            </div>
         </div>
+        <div class="user__main__info flex__column">
+            <div class="user__name">
+                <h2>{{user.username}}</h2>
+            </div>
+            {{!--
+            <div class="user__date">
+                <p>{{data.date}}</p>
+            </div> --}}
+            <div class="user__info">
+
+                <p>{{user.namereal}}</p>
+                <h5>{{user.genre}} lover!</h5>
+            </div>
+            <p style="margin-top:10px; background:rgba(0,0,0,0.7); padding: 3px 5px;border-radius: 5px;">
+                <a href="../../auth/editperfil/{{user.id}}">Edit Profile</a>
+            </p>
+            <div class="user__favlist ">
+                <ul>
+                    <li>
+                        <a href="../../favlist/favorites/{{user._id}}">
+                            <p>Favorites</p>
+                            <img src="../../images/fav.png" alt="">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../favlist/watchlist/{{user._id}}">
+                            <p>Watch list</p>
+                            <img src="../../images/eye.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
-    <div class="user__main__info flex__column">
-        <div class="user__name">
-            <h2>{{user.username}}</h2>
-        </div>
-        {{!--
-        <div class="user__date">
-            <p>{{data.date}}</p>
-        </div> --}}
-        <div class="user__info">
-            
-            <p>{{user.namereal}}</p>
-            <h5>{{user.genre}} lover!</h5>
-        </div>
-        
-        <div class="user__favlist ">
-            <ul>
-                <li><a href="../../favlist/favorites/{{user._id}}">
-                <p>Favorites</p><img src="../../images/fav.png" alt="">
-            </a></li>
-            
-            <li><a href="../../favlist/watchlist/{{user._id}}">
-                <p>Watch list</p><img src="../../images/eye.png" alt="">
-            </a></li>
-            </ul>
-        </div>
-    </div>
-    </div>
-<h2><a href="../../auth/editperfil/{{user.id}}">Edit Perfil</a></h2>
+
 </div>

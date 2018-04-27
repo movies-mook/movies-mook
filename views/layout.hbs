@@ -9,6 +9,8 @@
     crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> --}}
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
     crossorigin="anonymous">
 </head>
@@ -31,7 +33,7 @@
                 <a>{{user.username}}</a>
               </button>
               <div class="dropdown-content">
-                <a href="/auth/perfil/{{user._id}}">Perfil</a>
+                <a href="/auth/perfil/{{user._id}}">Profile</a>
                 <a href="/favlist/favorites/{{user._id}}">Favorites</a>
                 <a href="/favlist/watchlist/{{user._id}}">Watchlist</a>
                 <a href="/auth/logout">Log Out</a>
@@ -85,10 +87,10 @@
       <div class="nav__bar__inner flex twenty" id="login__off">
         <ul>
           <li>
-            <a href="/auth/login">Login</a>
+            <a href="/auth/login">LogIn</a>
           </li>
           <li>
-            <a href="/auth/signup">Signup</a>
+            <a href="/auth/signup">SignUp</a>
           </li>
         </ul>
       </div>
