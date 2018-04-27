@@ -17,27 +17,33 @@
         </div>
         <div class="auth__label flex">
             <label for="namereal">
-                <h5>Realname</h5>
+                <h5>Real name</h5>
             </label>
             <input type="text" name="namereal" required placeholder="real name">
         </div>
         <div class="auth__label flex">
-            <select name="pais">
-                <option value="Terror">Terror</option>
+            <h5>Favorite Genre</h5>
+            <select name="genre">
+                <option value="Action">Action</option>
+                <option value="Adventures">Adventures</option>
+                <option value="Animation">Animation</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Sci-Fi">Sci-Fi</option>
                 <option value="Thriller">Thriller</option>
             </select>
         </div>
-        <div class="auth__label flex">
-            <label>Birthdate:</label>
-            <input type="date" name="fecha">
-        </div>
-
         {{#if errorMessage}}
         <div class="error-message">{{ errorMessage }}</div>
         {{/if}}
 
-        <div class="auth__label flex">
+        <div class="auth__label flex__column">
             <section>
+                <label for="photo">
+                    <h5>Profile img</h5>
+                </label>
+
                 <input type="file" name="photo" id="myPhoto">
                 <div class="auth__label flex">
                     <button>

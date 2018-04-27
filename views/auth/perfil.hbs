@@ -1,26 +1,36 @@
-<div id="perfil__container" class="outer__container flex">
-    <div class="user__img__container">
+<div id="perfil__container" class="outer__container ">
+    <div class="user__new__container ">
+        <div class="user__img__container">
         <div class="user__img">
             <img src="{{user.img}}">
-        </div>
-        <div class="user__favlist flex">
-            <a href="../../favlist/favorites/{{user._id}}">
-                <img src="../../images/fav.png" alt="">
-            </a>
-            <a href="../../favlist/watchlist/{{user._id}}">
-                <img src="../../images/eye.png" alt="">
-            </a>
         </div>
     </div>
     <div class="user__main__info flex__column">
         <div class="user__name">
             <h2>{{user.username}}</h2>
         </div>
+        {{!--
         <div class="user__date">
             <p>{{data.date}}</p>
-        </div>
+        </div> --}}
         <div class="user__info">
-            <p>{{user.pais}} fan</p>
+            
+            <p>{{user.namereal}}</p>
+            <h5>{{user.genre}} lover!</h5>
+        </div>
+        
+        <div class="user__favlist ">
+            <ul>
+                <li><a href="../../favlist/favorites/{{user._id}}">
+                <p>Favorites</p><img src="../../images/fav.png" alt="">
+            </a></li>
+            
+            <li><a href="../../favlist/watchlist/{{user._id}}">
+                <p>Watch list</p><img src="../../images/eye.png" alt="">
+            </a></li>
+            </ul>
         </div>
     </div>
+    </div>
+    
 </div>
