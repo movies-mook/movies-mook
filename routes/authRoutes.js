@@ -19,8 +19,7 @@ router.post("/signup", uploadCloud.single("photo"), (req, res, next) => {
   const namereal = req.body.namereal;
   const username = req.body.username;
   const password = req.body.password;
-  const pais = req.body.pais;
-  const fecha = req.body.fecha;
+  const genre = req.body.genre;
   const img = req.file.url;
   // const favorites = req.body.favorites;
 
@@ -38,8 +37,7 @@ router.post("/signup", uploadCloud.single("photo"), (req, res, next) => {
       const newUser = new User({
         namereal,
         username,
-        pais,
-        fecha,
+        genre,
         img: req.file.url,
         // favorites: favorites.push({data}),
         password: hashPass
@@ -66,9 +64,9 @@ router.get("/logout", (req, res) => {
 router.get("/perfil/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(user => {
-      var fecha = user.fecha.toDateString();
+      // var fecha = user.fecha.toDateString();
       let data = {
-        date: fecha,
+        // date: fecha,
         user
       };
       res.render("auth/perfil", { data });

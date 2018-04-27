@@ -1,12 +1,12 @@
-{{#each movies}}
-<div class="outer__container flex">
-    <div class="movie__detail__container flex">
-        <div class="movie__detail__left flex__column">
-                        <h2> {{this.title}}</h2>
-            <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{this.poster_path}}" alt="">
-            
-        </div>
-    </div>
-</div>
-    {{/each}}
 
+<div class="favlist__container flex">
+    {{#each movies}}
+    <div class="favlist__inner flex">
+        
+        <a href="../../movies/details/{{this.id}}"><img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{this.poster_path}}" alt=""></a>
+        
+         
+    </div>
+   {{/each}}
+</div>
+    
